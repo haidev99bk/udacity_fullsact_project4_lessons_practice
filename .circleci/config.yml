@@ -10,8 +10,6 @@ jobs:
       # the base image can run most needed actions with orbs
       - image: "cimg/base:stable"
     steps:
-      - node/install
-      - checkout
       # install dependencies in both apps
       - run:
           name: FE install
@@ -27,7 +25,7 @@ jobs:
           name: FE build
           command: |
             npm run frontend:build
-       - run:
-          name: BE build
-          command: |
-            npm run backend:build
+      - run:
+        name: BE build
+        command: |
+          npm run backend:build
